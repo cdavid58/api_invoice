@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "5b246ade-26c7-408a-b124-02bb03cd24d9",
+		"name": "Api_Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29848718"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pk_company\": 57\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9090/company/Login_User_Comapny/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9090",
+							"path": [
+								"company",
+								"Login_User_Comapny",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type_worker_id\": 1,\r\n    \"sub_type_worker_id\": 2,\r\n    \"payroll_type_document_identification_id\": 3,\r\n    \"municipality_id\": 1,\r\n    \"type_contract_id\": 1,\r\n    \"high_risk_pension\": false,\r\n    \"identification_number\": 1000305507,\r\n    \"first_name\": \"TATIANA\",\r\n    \"second_surname\": \"RENGIFO\",\r\n    \"surname\": \"BEDOYA\",\r\n    \"middle_name\": null,\r\n    \"address\": \"CRA 46 # 46-68\",\r\n    \"integral_salary\": false,\r\n    \"salary\": \"1500000\",\r\n    \"email\": \"tatiibedoya233@gmail.com\",\r\n    \"pk_company\": 57,\r\n    \"user_name\": \"tatiana\",\r\n    \"psswd\": null,\r\n    \"pk_user\": null,\r\n    \"permissions\":[1],\r\n    \"name_company\":\"GERBE\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/user/Create_User/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"Create_User",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login_Company",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"tatiana\",\r\n    \"psswd\": \"szuXus3VVSfmVixavthT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/user/Login_Company/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"Login_Company",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

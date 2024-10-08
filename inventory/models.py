@@ -515,6 +515,22 @@ class Product(models.Model):
 		return list_products
 
 	@classmethod
+	def get_list_products_company(cls, data):
+		list_products = []
+		try:
+			branch = Branch.objects.get(pk = data['pk_branch'])
+			for i in cls.objects.filter(branch = branch):
+				product = serialized_employee = serializers.serialize('json', [i])
+				print(i.pk)
+				_product = json.loads(product)[0]['fields']
+				_product['pk_product'] = i.pk
+				list_products.append(_product)
+
+		except Exception as e:
+			print(e)		
+		return list_products
+
+	@classmethod
 	def get_list_products_supplier(cls, data):
 		branch = Employee.objects.get(pk = data['pk_employee']).branch
 		list_products = []

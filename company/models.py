@@ -27,6 +27,17 @@ class Company(models.Model):
 	ping = models.IntegerField(null = True, blank=True)
 
 
+	@classmethod
+	def login_user_comapny(cls, data):
+		result = False
+		message = None
+		try:
+			company = cls.objects.get(pk = data['pk_company'])
+			Branch.list_branch_company(company)
+		except Exception as e:
+			raise e
+
+
 	def __str__(self):
 		return self.name
 
@@ -118,6 +129,18 @@ class Branch(models.Model):
 
 	def __str__(self):
 		return f"{self.name} - {self.company.name}"
+
+	@classmethod
+	def list_branch_company(cls, company):
+		branches_except_2 = Branch.objects.filter(company = company)
+		_data = []
+		for i in branches_except_2:
+			a = json.loads(serializers.serialize('json', [i]))[0]
+			print(a)
+			_a = a['fields']
+			_a['pk'] = a['pk']
+			_data.append(_a)
+		return _data
 
 	@classmethod
 	def change_environment(cls, data):
